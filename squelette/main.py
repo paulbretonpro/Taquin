@@ -37,9 +37,9 @@ score_function = lambda node: node.g
 ###############################################
 
 exploration = Exploration(problem=problem, criterion=score_function)
-time_begin = time.clock()
+#time_begin = time.clock()
 path = exploration.explore()
-time_end = time.clock()
+#time_end = time.clock()
 
 ###############################################
 # Result
@@ -63,4 +63,4 @@ else:
 
 print("Number of nodes explored:" + str(exploration.n_explores))
 print("Number of steps: " + str(steps))
-print("Exploration duration: " + str(time_end - time_begin) + " second(s)") 
+#print("Exploration duration: " + str(time_end - time_begin) + " second(s)") 
