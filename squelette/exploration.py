@@ -49,6 +49,12 @@ class Exploration:
                 else :
                     open[node.state] = node
 
+    def successors(self,current_node) :
+        possible_actions = self.problem.possible_actions(current_node.state)
+        nodes = []
+        for i in possible_actions:
+            nodes.append(current_node.create_child(i, self.problem))
+        return nodes
 
     def explore(self):
         """
@@ -65,10 +71,8 @@ class Exploration:
                 return current_node.backtrack_path()#on retourne la solution
             else : #sinon
                 #on cherche tous les successeurs possibles du node courant
-                possible_actions = self.problem.possible_actions(current_node.state)
-                new_nodes = []#
-                for i in possible_actions:
-                    new_nodes.append(current_node.create_child(i, self.problem))
-                
+                new_nodes = self.successors(current_node)
                 self.update_tree(new_nodes, self.open, self.close)#on met a jour l'arbre d'exploration
         return "Goal not achievable"
+
+  
