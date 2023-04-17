@@ -10,15 +10,15 @@ from taquin.state import State
 ###############################################
 
 board = [
-    [1,2,3],
-    [4,5,0],
-    [6,7,8]
+    [1, 2, 3],
+    [4, 5, 0],
+    [6, 7, 8]
 ]
 
 goal = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,0]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 0]
 ]
 
 target_state = State(goal)
@@ -30,16 +30,17 @@ initial_state = State(board)
 problem = Problem(initial_state=initial_state, final_state=target_state)
 
 # Dijkstra
-score_function = lambda node: node.g
+
+
+def score_function(node): return node.g
 
 ###############################################
 # Exploration (generic)
 ###############################################
 
+
 exploration = Exploration(problem=problem, criterion=score_function)
-time_begin = time.clock()
 path = exploration.explore()
-time_end = time.clock()
 
 ###############################################
 # Result
@@ -63,4 +64,4 @@ else:
 
 print("Number of nodes explored:" + str(exploration.n_explores))
 print("Number of steps: " + str(steps))
-print("Exploration duration: " + str(time_end - time_begin) + " second(s)") 
+print("Exploration duration: " + str(time_end - time_begin) + " second(s)")

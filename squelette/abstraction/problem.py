@@ -1,17 +1,18 @@
 
 import random
 
+
 class Problem:
     """
     Abstract class that summarizes the methods needed for a problem
     """
-    
+
     def get_initial_state(self):
         """
        Returns the initial state
         """
         raise NotImplementedError
-    
+
     def goal(self, state):
         """
         Returns true if the state in parameter is a goal state
@@ -31,6 +32,7 @@ class Problem:
         Returns the new state reached from a current state by a given action
          CAUTION: the input state must not be modified. You have to make a copy.
         """
+
         raise NotImplementedError
 
     @classmethod
@@ -59,5 +61,3 @@ class Problem:
             r = random.randint(0, len(actions)-1)
             state = cls.transition(state, actions[r])
         return state
-
-
