@@ -1,5 +1,5 @@
 .metals
 .metals/*
 
-_pycache_
-_pycache_/*
+squelette/_pycache_
+squelette/_pycache_/*
